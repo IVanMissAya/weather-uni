@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "天的气",
+  "usingComponents": {
+    "u-icon": "/node-modules/uview-ui/components/u-icon/u-icon",
+    "uni-ec-canvas": "/components/uni-ec-canvas/uni-ec-canvas",
+    "u-picker": "/node-modules/uview-ui/components/u-picker/u-picker",
+    "loading": "/components/loading"
+  }
+}
