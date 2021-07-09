@@ -23,7 +23,8 @@
         },
         /* 模块配置 */
         "modules" : {
-            "Geolocation" : {}
+            "Geolocation" : {},
+            "Maps" : {}
         },
         /* 应用发布信息 */
         "distribute" : {
@@ -37,9 +38,7 @@
                     "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
                     "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
                     "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
-                    "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
-                    "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
-                    "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>"
+                    "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>"
                 ],
                 "abiFilters" : [ "armeabi-v7a", "arm64-v8a", "x86" ]
             },
@@ -54,7 +53,13 @@
                         "appkey_android" : "ab0e5558d04d4d89f473aa8f791427bf"
                     }
                 },
-                "ad" : {}
+                "ad" : {},
+                "maps" : {
+                    "amap" : {
+                        "appkey_ios" : "b14bc078b4264b67b8fa9d2f2255b4fb",
+                        "appkey_android" : "ab0e5558d04d4d89f473aa8f791427bf"
+                    }
+                }
             },
             "icons" : {
                 "android" : {
@@ -91,9 +96,9 @@
             "splashscreen" : {
                 "androidStyle" : "default",
                 "android" : {
-                    "hdpi" : "D:/download/chrome download/max-bender-1YHXFeOYpN0-unsplash.png",
-                    "xhdpi" : "D:/download/chrome download/max-bender-1YHXFeOYpN0-unsplash.png",
-                    "xxhdpi" : "D:/download/chrome download/max-bender-1YHXFeOYpN0-unsplash.png"
+                    "hdpi" : "D:/download/chrome download/splash.png",
+                    "xhdpi" : "D:/download/chrome download/splash.png",
+                    "xxhdpi" : "D:/download/chrome download/splash.png"
                 }
             }
         },

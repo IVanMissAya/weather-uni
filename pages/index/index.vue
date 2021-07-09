@@ -100,7 +100,9 @@
 			</view>
 			<!-- 风速 -->
 			<view class="u-flex max_min_temp" :data-desc="weather.cur_wind_desc" @click="showDesc">
-				<view class="max_min_temp_icon"><image src="../../static/images/icons/wind.png" style="width: 22px;" class="top_icon roating" mode="widthFix"></image></view>
+				<view class="max_min_temp_icon">
+					<image src="../../static/images/icons/wind.png" style="width: 42rpx;height:42rpx" class="top_icon roating" mode="widthFix"></image>
+				</view>
 				<view class="u-flex u-main-color u-margin-left-20">
 					<view>{{ weather.wind_unit }}</view>
 					<view class="u-main-color ">{{ weather.wind_value }}</view>
@@ -129,16 +131,20 @@
 			<uni-ec-canvas class="uni-ec-canvas" id="line-chart" ref="canvas" canvas-id="lazy-load-chart" :ec="ec"></uni-ec-canvas>
 			<!-- #endif -->
 		</view>
-
+		
+		<view class="bottom-area">
+			<BottomWave></BottomWave>
+		</view>
+		
 		<!-- 地区选择器 -->
 		<u-picker v-model="showPicker" :default-region="defautlRegion" mode="region" @confirm="chooseCity"></u-picker>
-
 		<Loading v-if="showLoading"></Loading>
 	</view>
 </template>
 
 <script>
 import Loading from '@/components/loading.vue';
+import BottomWave from '@/components/bottomWave.vue';
 
 // #ifdef APP-PLUS || H5
 import echarts from '@/components/echarts/echarts.vue';
@@ -152,6 +158,7 @@ import uniEcCanvas from '@/components/uni-ec-canvas/uni-ec-canvas';
 export default {
 	components: {
 		Loading,
+		BottomWave,
 		// #ifdef APP-PLUS || H5
 		echarts,
 		// #endif
@@ -199,7 +206,7 @@ export default {
 						splitLine: {
 							// 网格线
 							show: false
-						}
+						}					
 					},
 					yAxis: {
 						type: 'value',
@@ -214,7 +221,8 @@ export default {
 						splitLine: {
 							// 网格线
 							show: false
-						}
+						},
+						axisLabel: { formatter: '{value} ℃' }
 					},
 					color: ['#92DCC7', '#B2D494'],
 					legend: {
@@ -322,7 +330,7 @@ export default {
 		 * 手动选择城市
 		 */
 		chooseCity(event) {
-			let _this = this; 
+			let _this = this;
 			_this.locationName = event.city.label;
 			_this.defautlRegion = [event.province.label, event.city.label, event.area.label];
 			_this.getWeatherByLocation(_this.locationName);
@@ -574,6 +582,7 @@ export default {
 							type: 'solid'
 						}
 					},
+					axisLabel: { formatter: '{value} ℃' },
 					splitLine: {
 						show: false //隐藏或显示
 					}
@@ -658,7 +667,6 @@ page {
 	height: calc(100vh - 44px);
 }
 /* #endif */
-
 .weather_icon {
 	color: #fff;
 	position: relative;
@@ -752,6 +760,13 @@ page {
 		height: 100%;
 		display: block;
 	}
+}
+
+.bottom-area{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 100rpx;
 }
 
 .roating {

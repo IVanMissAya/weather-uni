@@ -29,7 +29,7 @@ export default {
 			const script = document.createElement('script')
 
 			// #ifdef APP-PLUS
-			script.src = '/static/app-plus/echarts.min.js'
+			script.src = './static/app-plus/echarts.min.js'
 			// #endif
 			// #ifdef H5
 			script.src = '/static/h5/echarts.min.js'
