@@ -322,7 +322,7 @@ export default {
 		 * 手动选择城市
 		 */
 		chooseCity(event) {
-			let _this = this;
+			let _this = this; 
 			_this.locationName = event.city.label;
 			_this.defautlRegion = [event.province.label, event.city.label, event.area.label];
 			_this.getWeatherByLocation(_this.locationName);
@@ -338,7 +338,7 @@ export default {
 				});
 			amapPlugin.getPoiAround({
 				success: function(data) {
-					if (data) {
+					if (data.poisData[0]) {
 						/**
 						 * @param {Object} city --城市
 						 * @param {Object} latitude --纬度
@@ -417,7 +417,7 @@ export default {
 							setTimeout(() => {
 								_this.showLoading = false;
 								resolve();
-							}, 1500);
+							}, 2500);
 						}).then(() => {
 							let result = res.data.result,
 								cur_wea_icon_value = parseInt(result.img),
@@ -668,7 +668,7 @@ page {
 	}
 
 	.cur_temp_value {
-		font-size: 4rem;
+		font-size: 3rem;
 	}
 
 	.cur_temp_unit {
