@@ -131,11 +131,9 @@
 			<uni-ec-canvas class="uni-ec-canvas" id="line-chart" ref="canvas" canvas-id="lazy-load-chart" :ec="ec"></uni-ec-canvas>
 			<!-- #endif -->
 		</view>
-		
-		<view class="bottom-area">
-			<BottomWave></BottomWave>
-		</view>
-		
+
+		<view class="bottom-area"><BottomWave></BottomWave></view>
+
 		<!-- 地区选择器 -->
 		<u-picker v-model="showPicker" :default-region="defautlRegion" mode="region" @confirm="chooseCity"></u-picker>
 		<Loading v-if="showLoading"></Loading>
@@ -206,7 +204,7 @@ export default {
 						splitLine: {
 							// 网格线
 							show: false
-						}					
+						}
 					},
 					yAxis: {
 						type: 'value',
@@ -650,6 +648,16 @@ export default {
 			} else if (type == 'min') {
 				return Math.min.apply(Math, arr);
 			}
+		},
+		onShareAppMessage(res) {
+			if (res.from === 'button') {
+				// 来自页面内分享按钮
+				console.log(res.target);
+			}
+			return {
+				title: '你的天气',
+				path: '/pages/index/index'
+			};
 		}
 	}
 };
@@ -762,7 +770,7 @@ page {
 	}
 }
 
-.bottom-area{
+.bottom-area {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
